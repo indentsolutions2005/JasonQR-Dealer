@@ -22,7 +22,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Spacing="20">
+            <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Spacing="10">
                 <Label Text="Please enter your phone number to enable this service" TextColor="Black" FontSize="Medium"/>
                 <Frame  HasShadow="False" BorderColor="Gray" CornerRadius="10">
                     <Frame.Padding>
