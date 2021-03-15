@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Controls="clr-namespace:JasonQR"
+             x:Class="JasonQR.Views.LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Pink">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Padding="20" RowSpacing="20" VerticalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="45" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Frame  HasShadow="False" BorderColor="Gray" CornerRadius="10">
+                        <Frame.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" iOS="10" Android="0"/>
+                        </Frame.Padding>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Controls:CustomEntry Text="{Binding PhoneNumber}" Placeholder="Enter Phone Number" Grid.Column="0"/>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+                <Button Grid.Row="2" Grid.Column="0" Command="{Binding LoginCommand}" BackgroundColor="#119887" FontAttributes="Bold" Grid.ColumnSpan="2"  HorizontalOptions="FillAndExpand" Text="Verify Phone Number" TextColor="White"/>
+            </Grid>
+            <Editor BackgroundColor="Transparent" FontAttributes="Bold" TextColor="White" VerticalOptions="EndAndExpand" FontSize="Small" Text="By tapping Verify Phone Number, an SMS may be sent." />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
