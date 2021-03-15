@@ -1,1 +1,0 @@
-# JasonQR-Dealer

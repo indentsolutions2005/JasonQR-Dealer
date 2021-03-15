@@ -13,6 +13,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Image Margin="0,-45,0,0" Grid.Row="0" Grid.Column="0" Aspect="AspectFill" Source="{local:EmbeddedImage JasonQR.Images.loginBg.png}"/>
+        <ScrollView>
         <Grid Padding="20" RowSpacing="20" VerticalOptions="CenterAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="45" />
@@ -26,8 +27,10 @@
             <Button BackgroundColor="DarkRed" x:Name="submitRef" TextColor="White" FontSize="Large" Text="Submit" Grid.Row="3"/>
             
         </Grid>
+            </ScrollView>
         <StackLayout IsVisible="false" x:Name="loading" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#90000000">
           <ActivityIndicator IsRunning="True" Color="White" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
         </StackLayout>
+
     </Grid>
 </ContentPage>

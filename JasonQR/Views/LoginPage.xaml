@@ -32,7 +32,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <controls:CustomEntry Text="{Binding PhoneNumber}" Placeholder="Phone Number" Grid.Column="0"/>
+                        <controls:CustomEntry HeightRequest="45" Text="{Binding PhoneNumber}" Placeholder="Phone Number" Grid.Column="0"/>
                     </Grid>
                 </Frame>
             </StackLayout>
