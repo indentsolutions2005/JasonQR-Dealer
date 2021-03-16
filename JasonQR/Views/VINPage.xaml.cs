@@ -14,6 +14,7 @@ using static JasonQR.ViewModels.AuthenticationViewModel;
 using System.Threading.Tasks;
 using JasonQR.Models;
 using ZXing.Net.Mobile.Forms;
+using JasonQR.ViewModels;
 
 namespace JasonQR.Views
 {
@@ -26,10 +27,13 @@ namespace JasonQR.Views
         private readonly ITesseractApi _tesseractApi;
         private readonly IDevice _device;
         public String vinNumber;
-
+        VINViewModel viewModel;
         public VINPage(String qrcodeString)
         {
             InitializeComponent();
+            viewModel = new VINViewModel(Navigation);
+            this.BindingContext = viewModel;
+
             qrcodeStr = qrcodeString;
             submitRef.Clicked += SubmitRef_Clicked;
             scanVinBarcode.Clicked += ScanVinBarcode_Clicked;
@@ -44,6 +48,16 @@ namespace JasonQR.Views
                 //getQRCOdeData(arg.ToString());
                 vinNumber = arg.ToString();
             });
+
+            vinNumberRef.TextChanged += (sender, args) =>
+            {
+                string _text = vinNumberRef.Text;      //Get Current Text
+                if (_text.Length > 6)       //If it is more than your character restriction
+                {
+                    _text = _text.Remove(_text.Length - 1);  // Remove Last character
+                    vinNumberRef.Text = _text;        //Set the Old value
+                }
+            };
         }
 
         private void VinNumberRef_TextChanged(object sender, TextChangedEventArgs e)
@@ -144,24 +158,53 @@ namespace JasonQR.Views
 
         public void getQRCOdeData(string vinNumber)
         {
-            loading.IsVisible = true;
+            //loading.IsVisible = true;
             //string str = "Click send to learn about this vehicle QR-" + QRCodeResult;
             AuthPostData authPost = new AuthPostData();
             authPost.type = "message-received";
             authPost.time = DateTime.Now.ToString();
-            authPost.from = Constants.MobileNumber;
+            authPost.from = "4259962185"; //Constants.MobileNumber;//TODO
             authPost.to = "+19252177190";
-            if (vinNumberRef.Text.Length > 6)
+            if (string.IsNullOrEmpty(vinNumberRef.Text))
             {
-                var lastSixDigits = vinNumberRef.Text.Substring(vinNumberRef.Text.Length - 6);
-                authPost.text = qrcodeStr + " " + lastSixDigits;
+                if (!string.IsNullOrEmpty(vinNumber))
+                {
+                    var lastSixDigits = vinNumber;
+                    if(vinNumber.Length > 6)
+                    {
+                        lastSixDigits = vinNumber.Substring(vinNumber.Length - 6);
+                    }
+                    authPost.text = qrcodeStr + " " + lastSixDigits;
+                }
+                else
+                {
+                    DisplayAlert("", "Choose any one option", "Ok");
+                }
             }
             else
             {
-                authPost.text = qrcodeStr + " " + vinNumber;
+                if (vinNumberRef.Text.Length < 6)
+                {
+                    if (vinNumberRef.Text.Length > 6)
+                    {
+                        var lastSixDigits = vinNumberRef.Text.Substring(vinNumberRef.Text.Length - 6);
+                        authPost.text = qrcodeStr + " " + lastSixDigits;
+                    }
+                    else
+                    {
+                        authPost.text = qrcodeStr + " " + vinNumberRef.Text;
+                    }
+                }
+                else
+                {
+                    DisplayAlert("", "Minimum 6 digits VIN Number", "Ok");
+                }
             }
+            
+            
 
-            ServiceCall service = new ServiceCall();
+            viewModel.submitQRCode(authPost);
+            /*ServiceCall service = new ServiceCall();
             service.QRCodeScanned(authPost);
             service.qrcodeEvent += ((ServiceCall webAPISender, EventArgs e2) =>
             {
@@ -193,7 +236,7 @@ namespace JasonQR.Views
                     {
                       DisplayAlert("", "Please try again", "Ok");
                      }
-            });
+            });*/
 
         }
     }
