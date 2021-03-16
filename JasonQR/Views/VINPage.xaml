@@ -18,12 +18,10 @@
                     <RowDefinition Height="45" />
                     <RowDefinition Height="45" />
                     <RowDefinition Height="45" />
-                    <RowDefinition Height="45" />
                 </Grid.RowDefinitions>
-                <Button BackgroundColor="DarkRed" x:Name="scanVinNumber"  TextColor="White" Text="Scan VIN Number" FontSize="Large" Grid.Row="0"/>
-                <Button  BackgroundColor="DarkRed" x:Name="scanVinBarcode" TextColor="White"  Text="Scan VIN Barcode" FontSize="Large" Grid.Row="1"/>
-                <Entry Placeholder="Enter last 6 digits VIN Number" x:Name="vinNumberRef" Grid.Row="2"/>
-                <Button BackgroundColor="DarkRed" x:Name="submitRef" TextColor="White" FontSize="Large" Text="Submit" Grid.Row="3"/>
+                <Button  BackgroundColor="DarkRed" x:Name="scanVinBarcode" TextColor="White"  Text="Scan VIN Barcode" FontSize="Large" Grid.Row="0"/>
+                <Entry Placeholder="Enter last 6 digits VIN Number" x:Name="vinNumberRef" Grid.Row="1"/>
+                <Button BackgroundColor="DarkRed" x:Name="submitRef" TextColor="White" FontSize="Large" Text="Submit" Grid.Row="2"/>
 
             </Grid>
 

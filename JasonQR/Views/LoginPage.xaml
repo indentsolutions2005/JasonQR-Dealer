@@ -15,7 +15,7 @@
         <Image Grid.Row="0" Grid.Column="0" Source="{local:EmbeddedImage JasonQR.Images.loginBg.png}" Aspect="AspectFit" />
         <Grid Padding="20" RowSpacing="20" VerticalOptions="CenterAndExpand">
             <Grid.RowDefinitions>
-                <RowDefinition Height="90" />
+                <RowDefinition Height="95" />
                 <RowDefinition Height="45" />
                 <RowDefinition Height="45" />
             </Grid.RowDefinitions>
@@ -32,7 +32,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <controls:CustomEntry HeightRequest="45" Text="{Binding PhoneNumber}" Placeholder="Phone Number" Grid.Column="0"/>
+                        <controls:CustomEntry VerticalTextAlignment="Center" Text="{Binding PhoneNumber}" Placeholder="Phone Number" Grid.Column="0"/>
                     </Grid>
                 </Frame>
             </StackLayout>

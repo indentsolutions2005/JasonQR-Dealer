@@ -37,7 +37,7 @@ namespace JasonQR.Views
             qrcodeStr = qrcodeString;
             submitRef.Clicked += SubmitRef_Clicked;
             scanVinBarcode.Clicked += ScanVinBarcode_Clicked;
-            scanVinNumber.Clicked += ScanVinNumber_Clicked;
+           // scanVinNumber.Clicked += ScanVinNumber_Clicked;
             vinNumberRef.TextChanged += VinNumberRef_TextChanged;
 
             _tesseractApi = Resolver.Resolve<ITesseractApi>();
@@ -70,15 +70,15 @@ namespace JasonQR.Views
             }
         }
 
-        private void ScanVinNumber_Clicked(object sender, EventArgs e)
-        {
-            getData();
-        }
+        //private void ScanVinNumber_Clicked(object sender, EventArgs e)
+        //{
+        //    getData();
+        //}
 
         public async void getData()
         {
             loading.IsVisible = true;
-            scanVinNumber.IsEnabled = false;
+            //scanVinNumber.IsEnabled = false;
 
             //if (!_tesseractApi.Initialized)
                await _tesseractApi.Init("eng");
@@ -110,7 +110,7 @@ namespace JasonQR.Views
             }
 
             loading.IsVisible = false;
-            scanVinNumber.IsEnabled = true;
+            //scanVinNumber.IsEnabled = true;
         }
 
         private void ScanVinBarcode_Clicked(object sender, EventArgs e)
@@ -163,7 +163,7 @@ namespace JasonQR.Views
             AuthPostData authPost = new AuthPostData();
             authPost.type = "message-received";
             authPost.time = DateTime.Now.ToString();
-            authPost.from = "4259962185"; //Constants.MobileNumber;//TODO
+            authPost.from = Constants.MobileNumber;
             authPost.to = "+19252177190";
             if (string.IsNullOrEmpty(vinNumberRef.Text))
             {
@@ -183,7 +183,7 @@ namespace JasonQR.Views
             }
             else
             {
-                if (vinNumberRef.Text.Length < 6)
+                if (vinNumberRef.Text.Length > 5)
                 {
                     if (vinNumberRef.Text.Length > 6)
                     {
