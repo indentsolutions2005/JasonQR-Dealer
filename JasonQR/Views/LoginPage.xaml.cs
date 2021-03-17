@@ -10,6 +10,12 @@ namespace JasonQR.Views
         {
             InitializeComponent();
             this.BindingContext = new LoginViewModel(Navigation);
+
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            NavigationPage.SetHasBackButton(this, false);
         }
         protected override bool OnBackButtonPressed()
         {

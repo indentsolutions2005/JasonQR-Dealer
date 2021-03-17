@@ -10,8 +10,14 @@ namespace JasonQR
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new LoginPage());
-            //MainPage = new NavigationPage(new VINPage("1234"));
+            if (Application.Current.Properties.ContainsKey("Phone"))
+            {
+                MainPage = new NavigationPage(new ScanPage());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new LoginPage());
+            }
             ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.DarkRed;
             ((NavigationPage)Application.Current.MainPage).BarTextColor = Color.White;
 

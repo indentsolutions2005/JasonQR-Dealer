@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using JasonQR.Models;
 using ZXing.Net.Mobile.Forms;
 using JasonQR.ViewModels;
+using ZXing.Mobile;
 
 namespace JasonQR.Views
 {
@@ -115,7 +116,53 @@ namespace JasonQR.Views
 
         private void ScanVinBarcode_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new BarcodeScannerPage(true));
+            //Navigation.PushModalAsync(new BarcodeScannerPage(true));
+            ScanBarcode();
+        }
+
+        public async void ScanBarcode()
+        {
+            /*var options = new ZXing.Mobile.MobileBarcodeScanningOptions();
+             options.PossibleFormats = new List<ZXing.BarcodeFormat>() {
+             ZXing.BarcodeFormat.All_1D};
+
+             var scanner = new ZXing.Mobile.MobileBarcodeScanner();
+             var result = await scanner.Scan(options);*/
+
+            var options = new ZXing.Mobile.MobileBarcodeScanningOptions
+            {
+                CameraResolutionSelector = HandleCameraResolutionSelectorDelegate,
+                AutoRotate = false,
+                TryHarder = true,
+                //PossibleFormats = new List<ZXing.BarcodeFormat>() { ZXing.BarcodeFormat.All_1D, ZXing.BarcodeFormat.AZTEC,
+                // ZXing.BarcodeFormat.CODE_128, ZXing.BarcodeFormat.CODE_39, ZXing.BarcodeFormat.CODE_93, ZXing.BarcodeFormat.DATA_MATRIX, ZXing.BarcodeFormat.EAN_13,
+                // ZXing.BarcodeFormat.EAN_8, ZXing.BarcodeFormat.IMB, ZXing.BarcodeFormat.ITF, ZXing.BarcodeFormat.MAXICODE,
+                // ZXing.BarcodeFormat.MSI, ZXing.BarcodeFormat.PDF_417, ZXing.BarcodeFormat.PLESSEY, ZXing.BarcodeFormat.RSS_14,
+                //ZXing.BarcodeFormat.RSS_EXPANDED, ZXing.BarcodeFormat.UPC_A, ZXing.BarcodeFormat.UPC_E, ZXing.BarcodeFormat.UPC_EAN_EXTENSION}
+            };
+
+
+
+            var scanner = new ZXing.Mobile.MobileBarcodeScanner()
+            {
+                TopText = "Align the barcode within the frame"
+            };
+        
+            scanner.AutoFocus();
+
+            //call scan with options created above
+            var result = await scanner.Scan(options);
+            vinNumber = result.Text;
+        }
+
+        private ZXing.Mobile.CameraResolution HandleCameraResolutionSelectorDelegate(List<ZXing.Mobile.CameraResolution> availableResolutions)
+        {
+            if (availableResolutions == null || availableResolutions.Count < 1)
+                return new CameraResolution() { Width = 800, Height = 150 };
+
+            //Debugging revealed that the last element in the list
+            //expresses the highest resolution. This could probably be more thorough.
+            return availableResolutions[availableResolutions.Count - 1];
         }
 
         private void SubmitRef_Clicked(object sender, EventArgs e)
@@ -163,7 +210,11 @@ namespace JasonQR.Views
             AuthPostData authPost = new AuthPostData();
             authPost.type = "message-received";
             authPost.time = DateTime.Now.ToString();
-            authPost.from = Constants.MobileNumber;
+            if (Application.Current.Properties.ContainsKey("Phone"))
+            {
+                authPost.from = Application.Current.Properties["Phone"].ToString();
+            }
+            //authPost.from = Constants.MobileNumber;
             authPost.to = "+19252177190";
             if (string.IsNullOrEmpty(vinNumberRef.Text))
             {
@@ -238,6 +289,11 @@ namespace JasonQR.Views
                      }
             });*/
 
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<BarcodeScannerPage>(this, "VINBARCODE");
         }
     }
 }

@@ -36,5 +36,7 @@
 	<string>Assets.xcassets/AppIcons.appiconset</string>
 	<key>NSCameraUsageDescription</key>
 	<string>please allow to access to the camera to scan barcodes</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

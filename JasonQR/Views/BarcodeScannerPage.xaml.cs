@@ -39,7 +39,10 @@ namespace JasonQR.Views
 
 
         }
-
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+        }
         public async Task VINPageAsync(string str) {
           // await Application.Current.MainPage.DisplayAlert("AA", str, "Ok");
            // await Navigation.PushAsync(new VINPage(),animated:false);

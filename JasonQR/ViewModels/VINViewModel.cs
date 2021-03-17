@@ -1,4 +1,5 @@
 ﻿using System;
+using JasonQR.Views;
 using JasonQR.WebApi;
 using Newtonsoft.Json;
 using Xamarin.Forms;
@@ -45,7 +46,11 @@ namespace JasonQR.ViewModels
                             await App.Current.MainPage.DisplayAlert("", AuthDetails.text, "Ok");
                             if (AuthDetails.text.ToLower().Contains("not an authorized"))
                             {
-                                await navRef.PopToRootAsync();
+                                await navRef.PushAsync(new LoginPage());
+                                if (Application.Current.Properties.ContainsKey("Phone"))
+                                {
+                                    Application.Current.Properties.Remove("Phone");
+                                }
                             }
                             else
                             {

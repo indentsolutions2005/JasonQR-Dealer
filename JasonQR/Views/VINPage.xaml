@@ -15,13 +15,13 @@
             <Image Margin="0,-45,0,0" Grid.Row="0" Grid.Column="0" Aspect="AspectFill" Source="{local:EmbeddedImage JasonQR.Images.loginBg.png}"/>
             <Grid Padding="20" RowSpacing="20" VerticalOptions="CenterAndExpand">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="45" />
-                    <RowDefinition Height="45" />
-                    <RowDefinition Height="45" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Button  BackgroundColor="DarkRed" x:Name="scanVinBarcode" TextColor="White"  Text="Scan VIN Barcode" FontSize="Large" Grid.Row="0"/>
+                <Button  BackgroundColor="DarkRed" x:Name="scanVinBarcode" TextColor="White"  Text="Scan VIN Barcode" FontSize="18" FontAttributes="Bold" Grid.Row="0"/>
                 <Entry Placeholder="Enter last 6 digits VIN Number" x:Name="vinNumberRef" Grid.Row="1"/>
-                <Button BackgroundColor="DarkRed" x:Name="submitRef" TextColor="White" FontSize="Large" Text="Submit" Grid.Row="2"/>
+                <Button BackgroundColor="DarkRed" x:Name="submitRef" TextColor="White" FontSize="18" FontAttributes="Bold" Text="Submit" Grid.Row="2"/>
 
             </Grid>
 

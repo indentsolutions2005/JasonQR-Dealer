@@ -16,29 +16,12 @@
         <Image Margin="0,-45,0,0" Grid.Row="0" Grid.Column="0" Aspect="AspectFill" Source="{local:EmbeddedImage JasonQR.Images.loginBg.png}"/>
         <Grid Padding="20" RowSpacing="20" VerticalOptions="CenterAndExpand">
             <Grid.RowDefinitions>
-                <RowDefinition Height="45" />
-                <RowDefinition Height="45" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="45" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Frame  HasShadow="False" BackgroundColor="DarkRed" BorderColor="Gray" CornerRadius="10">
-                        <Frame.Padding>
-                            <OnPlatform x:TypeArguments="Thickness" iOS="10" Android="0"/>
-                        </Frame.Padding>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Text="Scan QR Code" Grid.Column="0" TextColor="White" FontSize="Large" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" Command="{Binding ScanCommand}"/>
-                            <!--<controls:CustomEntry x:Name="ScanCode"  IsEnabled="False" Grid.Column="0" Grid.ColumnSpan="2"/>-->
-                        </Grid>
-                    </Frame>
-                </StackLayout>
-            
+            <Button Text="Scan QR Code" Grid.Row="0" FontAttributes="Bold" Grid.Column="0" TextColor="White" FontSize="18" BackgroundColor="DarkRed" HorizontalOptions="FillAndExpand" Command="{Binding ScanCommand}"/>
 
         </Grid>
         <StackLayout IsVisible="{Binding IsBusy}" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#90000000">

@@ -52,7 +52,11 @@ namespace JasonQR.ViewModels
            
             OTPCommand = new Command(() =>
             {
-                //navigation.PushAsync(new ScanPage());
+                //Application.Current.Properties["Phone"] = Constants.MobileNumber;
+                //Application.Current.SavePropertiesAsync();
+                //navigation.PushAsync(new ScanPage(), false);
+
+
                 IsBusy = true;
                 string str = "Response " + OTP;
                 AuthPostData authPost = new AuthPostData();
@@ -75,7 +79,9 @@ namespace JasonQR.ViewModels
                             var AuthDetails = JsonConvert.DeserializeObject<AuthPostData>(webAPISender.authResponse);
                             if (AuthDetails.text.ToLower().Contains("valid"))
                             {
-                                navigation.PushAsync(new ScanPage());
+                                Application.Current.Properties["Phone"] = Constants.MobileNumber;
+                                Application.Current.SavePropertiesAsync();
+                                navigation.PushAsync(new ScanPage(), false);
                             }
                             else
                             {
