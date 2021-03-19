@@ -21,7 +21,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Text="Scan QR Code" Grid.Row="0" FontAttributes="Bold" Grid.Column="0" TextColor="White" FontSize="18" BackgroundColor="DarkRed" HorizontalOptions="FillAndExpand" Command="{Binding ScanCommand}"/>
+            <Button Text=" SCAN APPLIED QR LABEL" Grid.Row="0" FontAttributes="Bold" Grid.Column="0" TextColor="White" FontSize="17" BackgroundColor="DarkRed" HorizontalOptions="FillAndExpand" Command="{Binding ScanCommand}"/>
 
         </Grid>
         <StackLayout IsVisible="{Binding IsBusy}" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#90000000">

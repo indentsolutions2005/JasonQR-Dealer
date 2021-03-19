@@ -14,14 +14,14 @@ namespace JasonQR.Views
         {
             InitializeComponent();
             isFrom = isFromVIN;
-            System.Threading.Tasks.Task.Delay(20 * 1000).ContinueWith((_) => StartVoid());
+           /* System.Threading.Tasks.Task.Delay(20 * 1000).ContinueWith((_) => StartVoid());
             if (isFrom)
             {
                 scannerRef.DefaultOverlayTopText = "Align the Barcode within the frame";
-            }
+            }*/
         }
 
-        private void StartVoid()
+       /* private void StartVoid()
         {
             try
             {
@@ -33,7 +33,7 @@ namespace JasonQR.Views
             {
 
             }
-        }
+        }*/
 
         public void Click_OnScanResult(Result result)
         {

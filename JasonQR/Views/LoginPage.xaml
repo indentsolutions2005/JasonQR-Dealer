@@ -23,7 +23,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <StackLayout Grid.Row="0" Grid.Column="0"  Spacing="10">
-                <Label Text="Please enter your phone number to enable this service" TextColor="Black" FontSize="Medium"/>
+                <Label Text="Please enter your mobile phone number" TextColor="Black" FontAttributes="Bold"/>
                 <Frame  HasShadow="False" BorderColor="Gray" CornerRadius="10">
                     <Frame.Padding>
                         <OnPlatform x:TypeArguments="Thickness" iOS="10" Android="0"/>
@@ -32,12 +32,12 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <controls:CustomEntry VerticalTextAlignment="Center" Text="{Binding PhoneNumber}" Placeholder="Phone Number"/>
+                        <controls:CustomEntry VerticalTextAlignment="Center" TextChanged="PhoneNumberRef_TextChanged" Text="{Binding PhoneNumber}" Placeholder="Phone Number"/>
                     </Grid>
                 </Frame>
             </StackLayout>
-            <Button Grid.Row="1" Grid.Column="0" FontSize="18" Command="{Binding LoginCommand}" BackgroundColor="DarkRed" FontAttributes="Bold" HeightRequest="45"  HorizontalOptions="FillAndExpand" Text="Verify Phone Number" TextColor="White"/>
-            <Label Grid.Row="2" Grid.Column="0" TextColor="Black" FontSize="Small"  HorizontalOptions="FillAndExpand" Text="By tapping Verify Phone Number, An sms will be sent to verify"/>
+            <Button Grid.Row="1" Grid.Column="0" FontSize="17" Command="{Binding LoginCommand}" BackgroundColor="DarkRed" FontAttributes="Bold" HeightRequest="45"  HorizontalOptions="FillAndExpand" Text="VERIFY PHONE NUMBER" TextColor="White"/>
+            <Label Grid.Row="2" Grid.Column="0" TextColor="Black" FontAttributes = "Bold"  HorizontalOptions="FillAndExpand" Text="A One Time Password will be sent by text msg"/>
         </Grid>
         <StackLayout IsVisible="{Binding IsBusy}" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#90000000">
           <ActivityIndicator IsRunning="True" Color="White" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>

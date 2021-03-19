@@ -4,7 +4,7 @@
              x:Class="JasonQR.Views.VINPage"
              xmlns:local="clr-namespace:jasonQR"
              Title="VIN">
-    <ScrollView HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+    <ScrollView HorizontalOptions="Fill" VerticalOptions="Fill">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -13,17 +13,13 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Image Margin="0,-45,0,0" Grid.Row="0" Grid.Column="0" Aspect="AspectFill" Source="{local:EmbeddedImage JasonQR.Images.loginBg.png}"/>
-            <Grid Padding="20" RowSpacing="20" VerticalOptions="CenterAndExpand">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Button  BackgroundColor="DarkRed" x:Name="scanVinBarcode" TextColor="White"  Text="Scan VIN Barcode" FontSize="18" FontAttributes="Bold" Grid.Row="0"/>
-                <Entry Placeholder="Enter last 6 digits VIN Number" x:Name="vinNumberRef" Grid.Row="1"/>
-                <Button BackgroundColor="DarkRed" x:Name="submitRef" TextColor="White" FontSize="18" FontAttributes="Bold" Text="Submit" Grid.Row="2"/>
+           
+                <StackLayout Padding="20" Spacing="10" Grid.Row="0" Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                  <!--<Label Text="Enter last six digits of the vehicle VIN" FontAttributes="Bold"></Label>-->
+                  <Entry Placeholder="Enter Last Six VIN digits" x:Name="vinNumberRef" HeightRequest="45" />
+                  <Button Margin="0,10,0,0" BackgroundColor="DarkRed" x:Name="submitRef" TextColor="White" FontSize="17" FontAttributes="Bold" Text="SUBMIT" />
+                </StackLayout>
 
-            </Grid>
 
             <StackLayout IsVisible="{Binding IsBusy}" x:Name="loading" Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#90000000">
                 <ActivityIndicator IsRunning="True" Color="White" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>

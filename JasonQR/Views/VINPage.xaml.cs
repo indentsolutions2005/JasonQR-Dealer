@@ -37,7 +37,7 @@ namespace JasonQR.Views
 
             qrcodeStr = qrcodeString;
             submitRef.Clicked += SubmitRef_Clicked;
-            scanVinBarcode.Clicked += ScanVinBarcode_Clicked;
+            //scanVinBarcode.Clicked += ScanVinBarcode_Clicked;
            // scanVinNumber.Clicked += ScanVinNumber_Clicked;
             vinNumberRef.TextChanged += VinNumberRef_TextChanged;
 
