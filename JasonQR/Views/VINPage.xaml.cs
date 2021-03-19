@@ -116,8 +116,8 @@ namespace JasonQR.Views
 
         private void ScanVinBarcode_Clicked(object sender, EventArgs e)
         {
-            //Navigation.PushModalAsync(new BarcodeScannerPage(true));
-            ScanBarcode();
+            Navigation.PushModalAsync(new BarcodeScannerPage(true));
+            //ScanBarcode();
         }
 
         public async void ScanBarcode()
@@ -214,6 +214,7 @@ namespace JasonQR.Views
             {
                 authPost.from = Application.Current.Properties["Phone"].ToString();
             }
+            //authPost.from = "4259962185";
             //authPost.from = Constants.MobileNumber;
             authPost.to = "+19252177190";
             if (string.IsNullOrEmpty(vinNumberRef.Text))

@@ -26,10 +26,12 @@ namespace JasonQR.ViewModels
         public ScanViewModel(INavigation navigation)
         {
             navRef = navigation;
-            ScanCommand = new Command(() =>
+            ScanCommand = new Command( () =>
             {
                 navigation.PushModalAsync(new BarcodeScannerPage(false));
-              //  navigation.PushAsync(new VINPage());
+                //  navigation.PushAsync(new VINPage());
+
+           
 
             });
 
