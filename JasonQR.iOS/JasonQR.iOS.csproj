@@ -38,8 +38,8 @@
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
-    <CodesignProvision>JasonQRProfile</CodesignProvision>
-    <CodesignKey>iPhone Developer: Todd Keitel (XCD9H8PK85)</CodesignKey>
+    <CodesignProvision>AppStoreProvisingProfile</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Todd Keitel (5VYXSJPHT6)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -64,9 +64,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution: Todd Keitel (5VYXSJPHT6)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
+    <CodesignProvision>AppStoreProvisingProfile</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -90,12 +91,19 @@
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\icon_40-1.png" />
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\icon_29.png" />
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\icon_58-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\icon_1024x1024.png" />
     <ImageAsset Include="Resources\Assets.xcassets\Contents.json" />
     <ImageAsset Include="Resources\Assets.xcassets\spalsh.imageset\splash.png" />
     <ImageAsset Include="Resources\Assets.xcassets\spalsh.imageset\Contents.json" />
     <ImageAsset Include="Resources\Assets.xcassets\spalsh.imageset\splash-1.png" />
     <ImageAsset Include="Resources\Assets.xcassets\spalsh.imageset\splash-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\icon_167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\icon_76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\icon_40-2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\icon_80-1.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\icon_152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\icon_20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\icon_60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\icon_1024x1024_white.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
