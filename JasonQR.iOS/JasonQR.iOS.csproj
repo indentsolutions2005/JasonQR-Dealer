@@ -64,10 +64,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Distribution: Todd Keitel (5VYXSJPHT6)</CodesignKey>
+    <CodesignKey>iPhone Developer: Todd Keitel (XCD9H8PK85)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
-    <CodesignProvision>AppStoreProvisingProfile</CodesignProvision>
+    <CodesignProvision>JasonQRProfile</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />

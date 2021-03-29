@@ -24,7 +24,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.JCN.JasonQR-Dealer</string>
 	<key>CFBundleVersion</key>
-	<string>1.4</string>
+	<string>1.1</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
@@ -34,12 +34,14 @@
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.7</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>JasonQR access Photo</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>JasonQR access Location</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>JasonQR access Bluetooth</string>
+	<key>NSCameraUsageDescription</key>
+	<string>JasonQR access Camera</string>
 </dict>
 </plist>
